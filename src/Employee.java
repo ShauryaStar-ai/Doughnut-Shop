@@ -17,14 +17,7 @@ public class Employee extends Thread {
             return;
         }
 
-        synchronized (tray) { // lock shared tray
-            if (tray.numDonuts > 0) {
-                tray.numDonuts--;
-                System.out.println(name + " grabbed a donut 🍩. Donuts left: " + tray.numDonuts);
-            } else {
-                System.out.println(name + " found no donuts 😭 Waiting for refill...");
-            }
-        }
+
     }
 
     // Your renamed start() method

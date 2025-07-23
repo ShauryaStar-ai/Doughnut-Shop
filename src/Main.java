@@ -9,7 +9,5 @@ I don’t care about your fancy ‘Java’ terms – I just want to see:**
 Make it fun, show me in the console, and prove it won’t crash if 10 people rush in.”*/
 public class Main {
     public static void main(String[] args) {
-        Employee shaurya = new Employee("shaurya");
-        shaurya.getDoughNut();
     }
-    }
+}
