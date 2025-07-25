@@ -15,14 +15,18 @@ public class DoughnutTray {
     // Singleton
     public static DoughnutTray getInstance() {
         if (instance == null) {
-            instance = new DoughnutTray(fulltray);
+            synchronized (DoughnutTray.class){
+                if (instance == null) {
+                    instance = new DoughnutTray(fulltray);
+                }
+            }
+
         }
         return instance;
     }
     /*Take doughnut from the tray and boolena return based on if the act was sucessful or not*/
     private final ReentrantLock lock = new ReentrantLock(); // we are taking matter in our own hands
     public boolean takeDonut(String name) {
-        lock.lock();
         boolean gotLock = false;
         try {
             gotLock = lock.tryLock(1000, TimeUnit.MILLISECONDS); // Wait 1 second

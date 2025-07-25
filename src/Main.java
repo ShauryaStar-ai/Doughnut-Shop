@@ -19,17 +19,20 @@ public class Main {
         Employee john = new Employee("John", tray);
 
         // 🧵 Start threads (each employee will try to get a donut)
-        System.out.println("The company has" + tray.getNumDoughtnuts());
+        System.out.println("The started with " + tray.getNumDoughtnuts()+" doughtnuts");
         System.out.println("-----------------------------------------");
         System.out.println("");
+
         bob.start();
         alice.start();
         john.start();
 
         // Optional: Wait for all threads to finish
-        /*bob.join();
+        bob.join();
         alice.join();
-        john.join();*/
+        john.join();
+
+        System.out.println("The company now has "+ tray.getNumDoughtnuts() +  " Doughtnuts");
 
     }
 }
