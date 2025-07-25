@@ -8,6 +8,28 @@ I don’t care about your fancy ‘Java’ terms – I just want to see:**
 🚦 Everyone waiting their turn (no crashes!)
 Make it fun, show me in the console, and prove it won’t crash if 10 people rush in.”*/
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        // 🍩 Get the single shared doughnut tray (Singleton)
+        DoughnutTray tray = DoughnutTray.getInstance();
+
+        // 👷 Create employees, all sharing the same tray
+        Employee bob = new Employee("Bob", tray);
+        Employee alice = new Employee("Alice", tray);
+        Employee john = new Employee("John", tray);
+
+        // 🧵 Start threads (each employee will try to get a donut)
+        System.out.println("The company has" + tray.getNumDoughtnuts());
+        System.out.println("-----------------------------------------");
+        System.out.println("");
+        bob.start();
+        alice.start();
+        john.start();
+
+        // Optional: Wait for all threads to finish
+        /*bob.join();
+        alice.join();
+        john.join();*/
+
     }
 }
